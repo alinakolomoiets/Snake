@@ -9,18 +9,21 @@ namespace Snake
 	internal class Program
 	{
 		static void Main(string[] args)
-		{//второй урок
-			Point p1 = new Point();//первая точка
-			p1.x = 1;
-			p1.y = 3;
-			p1.sym = '*';
-			p1.Draw();
+		{
+			Console.SetWindowSize(80, 25);
 
-			Point p2 = new Point();//вторая точка
-			p2.x = 4;
-			p2.y = 5;
-			p2.sym = '#';
-			p2.Draw();
+			HorizontalLine upline = new HorizontalLine(0, 78, 0, '+');
+			HorizontalLine downline = new HorizontalLine(0, 78, 24, '+');
+			VerticalLine leftline = new VerticalLine(0, 24, 0, '+');
+			VerticalLine rightline = new VerticalLine(0, 24, 78, '+');
+			upline.Drow();
+			downline.Drow();
+			leftline.Drow();
+			rightline.Drow();
+
+			Point p = new Point(4, 5, '*');
+			Snake snake = new Snake(p, 4, Direction.RIGHT);
+			snake.Drow();
 
 
 			Console.ReadLine();
