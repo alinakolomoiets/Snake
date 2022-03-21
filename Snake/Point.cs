@@ -55,5 +55,10 @@ namespace Snake
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
         }
+        public void Clear()//Стирает точку 
+		{
+            sym = ' ';
+            Draw();
+		}
     }
 }

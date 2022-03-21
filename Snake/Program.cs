@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Snake
 {
@@ -24,10 +25,17 @@ namespace Snake
 			Point p = new Point(4, 5, '*');//Вывод точки на экран
 			Snuke snuke = new Snuke(p, 4, Direction.RIGHT);
 			snuke.Drow();
-			snuke.Move();
 
-
-			Console.ReadLine();
+			while (true)
+			{
+				if (Console.KeyAvailable)
+				{
+					ConsoleKeyInfo key = Console.ReadKey();
+					snuke.HandleKey(key.Key);
+				}
+				Thread.Sleep(100);
+				snuke.Move();
+			}
 		}
 	}
 }

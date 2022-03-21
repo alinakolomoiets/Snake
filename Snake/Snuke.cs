@@ -8,9 +8,10 @@ namespace Snake
 {
 	class Snuke :Figure
 	{
-        Direction direction;//хранение данных для движения
-        public Snuke(Point tail, int length, Direction direction)
+        public Direction direction;//хранение данных для движения
+        public Snuke(Point tail, int length, Direction _direction)
         {
+            direction = _direction;
             pList = new List<Point>();// Задаем направление и начальную точку 
             for (int i = 0; i < length; i++)
             {
@@ -26,7 +27,7 @@ namespace Snake
             Point head = GetNextPoint();
             pList.Add(head);
 
-            tail.Clear();
+            tail.Clear();//стирает хвостовую точку
             head.Draw();
 		}
         public Point GetNextPoint()//
@@ -36,5 +37,16 @@ namespace Snake
             nextPoint.Move(1, direction);
             return nextPoint;
 		}
+        public void HandleKey(ConsoleKey key)//нажатие клавиш
+		{
+            if (key == ConsoleKey.LeftArrow)
+                direction = Direction.LEFT;
+            else if (key == ConsoleKey.RightArrow)
+                direction = Direction.RIGHT;
+            else if (key == ConsoleKey.DownArrow)
+                direction = Direction.DOWN;
+            else if (key == ConsoleKey.UpArrow)
+                direction = Direction.UP;
+        }
     }
 }
