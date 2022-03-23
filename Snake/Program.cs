@@ -48,5 +48,20 @@ namespace Snake
 				}
 			}
 		}
+		static void WriteGameOver()
+		{
+			int xOffset = 30;
+			int yOffset = 8;
+			Console.ForegroundColor = ConsoleColor.Red;
+			Console.SetCursorPosition(xOffset, yOffset++);
+			WriteText("============================", xOffset, yOffset++);
+			WriteText("    G A M E    O V E R", xOffset + 1, yOffset++);
+			WriteText("============================", xOffset, yOffset++);
+		}
+		static void WriteText(string text, int xOffset, int yOffset)
+		{
+			Console.SetCursorPosition(xOffset, yOffset);
+			Console.WriteLine(text);
+		}
 	}
 }
