@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Snake
+{
+    public class Score // счетчик 
+    {
+        public int score;
+        public Score(int score)
+        {
+            this.score = score;
+        }
+        public Score()
+        {
+            score += 10;
+        }
+        public void vivodScore()
+        {
+            Console.SetCursorPosition(100, 2);
+            Console.WriteLine("Score:" + score.ToString());
+        }
+    }
+}
